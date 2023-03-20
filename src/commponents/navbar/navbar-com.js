@@ -16,7 +16,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Logout from "@mui/icons-material/Logout";
 import Settings from "@mui/icons-material/Settings";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import AddIcon from "@mui/icons-material/Add";
+// import AddIcon from "@mui/icons-material/Add";
 
 function ResponsiveAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -27,6 +27,7 @@ function ResponsiveAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
 
   return (
     <AppBar position="static">
@@ -34,7 +35,7 @@ function ResponsiveAppBar() {
         <Toolbar disableGutters>
           <Box display={"flex"} flexGrow={1}>
             <Typography
-              variant="h5"
+              variant="h6"
               noWrap
               component="a"
               href="#"
@@ -47,23 +48,20 @@ function ResponsiveAppBar() {
                 color: "inherit",
                 textDecoration: "none",
               }}
+              
             >
-              LOGO
+              STORE_BUILDER
             </Typography>
-            <Button variant="inherit">
-              <ListItemIcon>
-                <AddIcon style={{ color: "white" }} />
-              </ListItemIcon>{" "}
+            {/* <Button variant="inherit">
+              <AddIcon style={{ color: "white" }} />
               Product
-            </Button>
+            </Button> */}
             <Button color="inherit">
-              <ListItemIcon>
-                <LocalMallIcon style={{ color: "white" }} />
-              </ListItemIcon>
+              <LocalMallIcon style={{ color: "white" }} />
               Cart
             </Button>
           </Box>
-          <Box>
+          <Box  >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -104,7 +102,31 @@ function ResponsiveAppBar() {
                     transform: "translateY(-50%) rotate(45deg)",
                     zIndex: 0,
                   },
-                },
+                  },
+                xs: {
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  "&:before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                  },
+                
               }}
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
