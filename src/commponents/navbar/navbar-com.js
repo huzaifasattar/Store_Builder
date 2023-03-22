@@ -19,15 +19,15 @@ import LocalMallIcon from "@mui/icons-material/LocalMall";
 // import AddIcon from "@mui/icons-material/Add";
 
 function ResponsiveAppBar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState("");
+  const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl("");
   };
-  
 
   return (
     <AppBar position="static">
@@ -44,24 +44,39 @@ function ResponsiveAppBar() {
                 display: { xs: "flex", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 700,
-                letterSpacing: ".3rem",
+                // letterSpacing: ".1rem",
                 color: "inherit",
                 textDecoration: "none",
               }}
-              
             >
               STORE_BUILDER
             </Typography>
-            {/* <Button variant="inherit">
+            {/* <Button sx={{
+                mr: 2,
+                display: { xs: "flex", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                // letterSpacing: ".1rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}>
               <AddIcon style={{ color: "white" }} />
               Product
             </Button> */}
-            <Button color="inherit">
+            <Button sx={{
+                mr: 2,
+                display: { xs: "flex", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                // letterSpacing: ".1rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}>
               <LocalMallIcon style={{ color: "white" }} />
               Cart
             </Button>
           </Box>
-          <Box  >
+          <Box>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -75,7 +90,7 @@ function ResponsiveAppBar() {
             <Menu
               anchorEl={anchorEl}
               id="account-menu"
-              open={anchorEl}
+              open={open}
               onClose={handleClose}
               onClick={handleClose}
               PaperProps={{
@@ -102,7 +117,7 @@ function ResponsiveAppBar() {
                     transform: "translateY(-50%) rotate(45deg)",
                     zIndex: 0,
                   },
-                  },
+                },
                 xs: {
                   overflow: "visible",
                   filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
@@ -125,8 +140,7 @@ function ResponsiveAppBar() {
                     transform: "translateY(-50%) rotate(45deg)",
                     zIndex: 0,
                   },
-                  },
-                
+                },
               }}
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
