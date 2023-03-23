@@ -1,74 +1,64 @@
 import {
   Grid,
-
   Card,
   CardMedia,
   CardActions,
   CardContent,
   Button,
   Typography,
-  
 } from "@mui/material";
 import image from "../image/store.jpeg";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 
-const ProductCard = ({pro,i}) => {
- 
-
-  
-
+const ProductCard = ({ pro, i }) => {
   return (
-   
-         
-            <Grid item xs={12} md={4} key={i}>
-              <Card sx={{ maxWidth: 345 }} style={{ marginTop: "10px" }}>
-                <CardMedia
-                  sx={{ height: 140 }}
-                  image={image}
-                  title="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {pro.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{
-                      mr: 2,
-                      fontFamily: "monospace",
-                      fontWeight: 700,
-                      color: "inherit",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Price:
-                    {pro.price}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    sx={{
-                      mr: 2,
-                      display: { xs: "flex", md: "flex" },
-                      fontFamily: "monospace",
-                      fontWeight: 700,
-                      color: "#1976d2",
-                      textDecoration: "none",
-                    }}
-                    size="small"
-                  >
-                    <LocalMallIcon
-                      style={{ color: "#1976d2" }}
-                      fontSize={"medium"}
-                    />
-                    {pro.category}
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          
-       
+    <Grid item xs={12} md={4} key={i}>
+      <Card sx={{ maxWidth: 345 }} style={{ marginTop: "10px" }}>
+        <CardMedia sx={{ height: 140 }} image={image} title="green iguana" />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{
+              fontFamily: "monospace",
+              fontWeight: 300,
+              color: "inherit",
+            }}
+          >
+            {pro.title}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              fontFamily: "monospace",
+              fontWeight: 700,
+              color: "inherit",
+            }}
+          >
+            Price:
+            {pro.price}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              color: "#1976d2",
+              textDecoration: "none",
+            }}
+            size="small"
+          >
+            <LocalMallIcon style={{ color: "#1976d2" }} fontSize={"medium"} />
+            {pro.category}
+          </Button>
+        </CardActions>
+      </Card>
+    </Grid>
   );
 };
 

@@ -80,232 +80,227 @@ const Products = createSlice({
         title: "Metal Strow Bottle",
         price: 105,
         id: "product4",
-              varients: [
-                {
-                  type: "Bottle",
-                  option: [
-                    {
-                      name: "hot",
-                      price: 10,
-                    },
-                    {
-                      name: "cold",
-                      price: 30,
-                    },
-                    
-                  ],
-                },
-              ],
-      },
+        varients: [
           {
-          
+            type: "Bottle",
+            option: [
+              {
+                name: "hot",
+                price: 10,
+              },
+              {
+                name: "cold",
+                price: 30,
+              },
+            ],
+          },
+        ],
+      },
+      {
         category: "accessories",
-        title: "Sunglasses",
+        title: "Sunglasses men",
 
         price: 3000,
         id: "product5",
-              varients: [
-                {
-                  type: "glasses",
-                  option: [
-                    {
-                      name: "mirror",
-                      price: 1000,
-                    },
-                    {
-                      name: "plastic",
-                      price: 400,
-                    },
-                    
-                  ],
-                },
-              ],
+        varients: [
+          {
+            type: "glasses",
+            option: [
+              {
+                name: "mirror",
+                price: 1000,
+              },
+              {
+                name: "plastic",
+                price: 400,
+              },
+            ],
+          },
+        ],
       },
       {
         category: "accessories",
-        title: "Adidas Hat",
+        title: "Adidas Hat children",
         price: 300,
         id: "product6",
-              varients: [
-                {
-                  type: "hat",
-                  option: [
-                    {
-                      name: "male",
-                      price: 30,
-                    },
-                    {
-                      name: "female",
-                      price: 50,
-                    },
-                    
-                  ],
-                },
-              ],
+        varients: [
+          {
+            type: "hat",
+            option: [
+              {
+                name: "male",
+                price: 30,
+              },
+              {
+                name: "female",
+                price: 50,
+              },
+            ],
+          },
+        ],
       },
       {
         category: "backPack",
-        title: "Adidas BackPack",
+        title: "Adidas BackPack new",
         price: 3000,
         id: "product7",
-              varients: [
-                {
-                  type: "Backpack",
-                  option: [
-                    {
-                      name: "smal",
-                      price: 500,
-                    },
-                    {
-                      name: "medium",
-                      price: 800,
-                    },
-                    {
-                      name: "large",
-                      price: 1000,
-                    },
-                  ],
-                },
-              ],
+        varients: [
+          {
+            type: "Backpack",
+            option: [
+              {
+                name: "smal",
+                price: 500,
+              },
+              {
+                name: "medium",
+                price: 800,
+              },
+              {
+                name: "large",
+                price: 1000,
+              },
+            ],
+          },
+        ],
       },
       {
         category: "shoes",
-        title: "Running Shoes",
+        title: "Running Shoes Old",
         price: 2000,
         id: "product8",
-              varients: [
-                {
-                  type: "Shoes",
-                  option: [
-                    {
-                      name: "5 number",
-                      price: 400,
-                    },
-                    {
-                      name: "7 number",
-                      price: 600,
-                    },
-                    {
-                      name: "9 number",
-                      price: 1000,
-                    },
-                  ],
-                },
-              ],
+        varients: [
+          {
+            type: "Shoes",
+            option: [
+              {
+                name: "5 number",
+                price: 400,
+              },
+              {
+                name: "7 number",
+                price: 600,
+              },
+              {
+                name: "9 number",
+                price: 1000,
+              },
+            ],
+          },
+        ],
       },
       {
         category: "shoes",
-        title: "Running Shoes",
+        title: "Running Shoes new",
         price: 5000,
         id: "product9",
         varients: [
-            {
-              type: "Shoes",
-              option: [
-                {
-                  name: "5 number",
-                  price: 800,
-                },
-                {
-                  name: "7 number",
-                  price: 1200,
-                },
-                {
-                  name: "9 number",
-                  price: 1600,
-                },
-              ],
-            },
-          ],
+          {
+            type: "Shoes",
+            option: [
+              {
+                name: "5 number",
+                price: 800,
+              },
+              {
+                name: "7 number",
+                price: 1200,
+              },
+              {
+                name: "9 number",
+                price: 1600,
+              },
+            ],
+          },
+        ],
       },
       {
         category: "shoes",
-        title: "Running Shoes",
+        title: "Running Shoes Mid ",
         price: 200,
         id: "product10",
         varients: [
-            {
-              type: "Shoes",
-              option: [
-                {
-                  name: "5 number",
-                  price: 500,
-                },
-                {
-                  name: "7 number",
-                  price: 700,
-                },
-                {
-                  name: "9 number",
-                  price: 900,
-                },
-              ],
-            },
-          ],
+          {
+            type: "Shoes",
+            option: [
+              {
+                name: "5 number",
+                price: 500,
+              },
+              {
+                name: "7 number",
+                price: 700,
+              },
+              {
+                name: "9 number",
+                price: 900,
+              },
+            ],
+          },
+        ],
       },
       {
         category: "backPack",
-        title: "Adidas BackPack",
+        title: "BackPack vision",
         price: 15000,
         id: "product1",
-          varients: [
-            {
-              type: "Backpack",
-              option: [
-                {
-                  name: "smal",
-                  price: 100,
-                },
-                {
-                  name: "medium",
-                  price: 120,
-                },
-                {
-                  name: "large",
-                  price: 150,
-                },
-              ],
-            },
-          ],
-      },
+        varients: [
           {
+            type: "Backpack",
+            option: [
+              {
+                name: "smal",
+                price: 100,
+              },
+              {
+                name: "medium",
+                price: 120,
+              },
+              {
+                name: "large",
+                price: 150,
+              },
+            ],
+          },
+        ],
+      },
+      {
         category: "backPack",
-        title: "Adidas BackPack",
+        title: "BackPack cold",
         price: 2000,
         id: "product12",
-          
-          varients: [
-            {
-              type: "Backpack",
-              option: [
-                {
-                  name: "smal",
-                  price: 500,
-                },
-                {
-                  name: "medium",
-                  price: 800,
-                },
-                {
-                  name: "large",
-                  price: 1000,
-                },
-              ],
-            },
-          ],
+
+        varients: [
+          {
+            type: "Backpack",
+            option: [
+              {
+                name: "smal",
+                price: 500,
+              },
+              {
+                name: "medium",
+                price: 800,
+              },
+              {
+                name: "large",
+                price: 1000,
+              },
+            ],
+          },
+        ],
       },
-     
-      ],
-      categories: 'All Category'
-    },
-  reducers:{
+    ],
+    categories: "All Category",
+  },
+  reducers: {
     productAdd: (state, action) => {
-        state.data.push(action.payload)
+      state.data.push(action.payload);
     },
-    selectedCategory:(state, action) => {
-        state.categories = action.payload
-    }
-}
+    selectedCategory: (state, action) => {
+      state.categories = action.payload;
+    },
+  },
 });
-export const { productAdd, selectedCategory } = Products.actions
-export default Products
+export const { productAdd, selectedCategory } = Products.actions;
+export default Products;

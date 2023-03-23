@@ -1,67 +1,91 @@
-import { Typography, Select, MenuItem } from "@mui/material";
+import { Select, MenuItem } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { selectedCategory } from "../redux/state";
 const OptionCategory = () => {
-  const [selectedCategories, setSelectedCategories] = useState("All category");
+  const dispatch = useDispatch();
+  const [selecteditemCategory, setSelecteditemCategory] =useState("All category");
+
+  const show = (e) => {
+    setSelecteditemCategory(e.target.value);
+  };
 
   const selectedChange = (e) => {
-    setSelectedCategories(e.target.value);
+    dispatch(selectedCategory(e));
   };
 
   return (
     <>
-      <Typography
+      <Select
+        value={selecteditemCategory}
+        displayEmpty
+        style={{ marginTop: "13px", width: "100%" }}
+        onChange={show}
         sx={{
-          mr: 2,
-          display: { xs: "flex", md: "flex" },
           fontFamily: "monospace",
           fontWeight: 700,
-          color: "inherit",
-          textDecoration: "none",
+          color: "#1976d2",
         }}
-        style={{ marginTop: "27px" }}
-      >
-        Category
-      </Typography>
-      <Select
-        value={selectedCategories}
-        displayEmpty
-        style={{ marginTop: "13px" }}
-        onChange={selectedChange}
       >
         <MenuItem
-          value="All category"
-          //   onClick={()=>selectedChange("All category")}
-          //   active={Categories==="All category"}
+          value={"Cloths"}
+          onClick={() => selectedChange("cloths")}
+          style={{ display: "flex", justifyContent: "center" }}
+          sx={{
+            fontFamily: "monospace",
+            fontWeight: 700,
+            color: "#1976d2",
+          }}
         >
-          All Category
-        </MenuItem>
-        <MenuItem
-          value={"Cloth"}
-          //   onClick={()=>selectedChange("Cloth")}
-          //   active={Categories==="Cloth"}
-        >
-          Cloth
+          CLOTHS
         </MenuItem>
         <MenuItem
           value={"Shoes"}
-          //    onClick={()=>selectedChange("Shoes")}
-          //   active={Categories==="Shoes"}
+          onClick={() => selectedChange("shoes")}
+          style={{ display: "flex", justifyContent: "center" }}
+          sx={{
+            fontFamily: "monospace",
+            fontWeight: 700,
+            color: "#1976d2",
+          }}
         >
-          Shoes
+          SHOES
         </MenuItem>
         <MenuItem
-          value={"backPack"}
-          //    onClick={()=>selectedChange("backPack")}
-          //   active={Categories==="backPack"}
+          value={"BackPack"}
+          onClick={() => selectedChange("backPack")}
+          style={{ display: "flex", justifyContent: "center" }}
+          sx={{
+            fontFamily: "monospace",
+            fontWeight: 700,
+            color: "#1976d2",
+          }}
         >
-          backPack
+          BACKPACK
         </MenuItem>
         <MenuItem
-          value={"accessories"}
-          //       onClick={()=>selectedChange("accessories")}
-          //   active={Categories==="accessories"}
+          value={"Accessories"}
+          onClick={() => selectedChange("accessories")}
+          style={{ display: "flex", justifyContent: "center" }}
+          sx={{
+            fontFamily: "monospace",
+            fontWeight: 700,
+            color: "#1976d2",
+          }}
         >
-          accessories
+          ACCESSORIES
+        </MenuItem>
+        <MenuItem
+          value="All category"
+          onClick={() => selectedChange("All Category")}
+          style={{ display: "flex", justifyContent: "center" }}
+          sx={{
+            fontFamily: "monospace",
+            fontWeight: 700,
+            color: "#1976d2",
+          }}
+        >
+          ALL CATEGORY
         </MenuItem>
       </Select>
     </>
