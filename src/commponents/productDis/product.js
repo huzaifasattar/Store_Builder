@@ -9,8 +9,10 @@ import {
 } from "@mui/material";
 import image from "../image/store.jpeg";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
+// import { Link } from "react-router-dom";
 
 const ProductCard = ({ pro, i }) => {
+  
   return (
     <Grid item xs={12} md={4} key={i}>
       <Card sx={{ maxWidth: 345 }} style={{ marginTop: "10px" }}>
@@ -24,6 +26,7 @@ const ProductCard = ({ pro, i }) => {
               fontFamily: "monospace",
               fontWeight: 300,
               color: "inherit",
+              textAlign: "center",
             }}
           >
             {pro.title}
@@ -35,6 +38,7 @@ const ProductCard = ({ pro, i }) => {
               fontFamily: "monospace",
               fontWeight: 700,
               color: "inherit",
+              textAlign: "center",
             }}
           >
             Price:

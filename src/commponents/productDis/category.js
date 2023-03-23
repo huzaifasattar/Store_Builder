@@ -19,7 +19,7 @@ const OptionCategory = () => {
       <Select
         value={selecteditemCategory}
         displayEmpty
-        style={{ marginTop: "13px", width: "100%" }}
+        style={{ marginTop: "13px", width: "100%",textAlign:"center" }}
         onChange={show}
         sx={{
           fontFamily: "monospace",
