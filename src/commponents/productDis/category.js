@@ -29,7 +29,7 @@ const OptionCategory = () => {
       >
         <MenuItem
           value={"Cloths"}
-          onClick={() => selectedChange("cloths")}
+          onClick={() => selectedChange("Cloths")}
           style={{ display: "flex", justifyContent: "center" }}
           sx={{
             fontFamily: "monospace",
@@ -41,7 +41,7 @@ const OptionCategory = () => {
         </MenuItem>
         <MenuItem
           value={"Shoes"}
-          onClick={() => selectedChange("shoes")}
+          onClick={() => selectedChange("Shoes")}
           style={{ display: "flex", justifyContent: "center" }}
           sx={{
             fontFamily: "monospace",
@@ -53,7 +53,7 @@ const OptionCategory = () => {
         </MenuItem>
         <MenuItem
           value={"BackPack"}
-          onClick={() => selectedChange("backPack")}
+          onClick={() => selectedChange("BackPack")}
           style={{ display: "flex", justifyContent: "center" }}
           sx={{
             fontFamily: "monospace",
@@ -65,7 +65,7 @@ const OptionCategory = () => {
         </MenuItem>
         <MenuItem
           value={"Accessories"}
-          onClick={() => selectedChange("accessories")}
+          onClick={() => selectedChange("Accessories")}
           style={{ display: "flex", justifyContent: "center" }}
           sx={{
             fontFamily: "monospace",

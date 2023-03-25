@@ -4,6 +4,8 @@ import image from "../image/store.jpeg"
 import { Container,ButtonBase,Typography,Paper,Grid,Button } from '@mui/material';
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import BtnVariant from './btnVariant';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const Img = styled('img')({
   
@@ -13,6 +15,10 @@ maxHeight:"100%"
 });
 
 export default function ComplexGrid() {
+const pram=useParams()
+const productList=useSelector((state)=> state.Products.data)
+
+
   return (
       <Container >
               <Paper
@@ -35,19 +41,19 @@ export default function ComplexGrid() {
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2} style={{textAlign:"center"}}>
             <Grid item xs>
-              <Typography gutterBottom variant="subtitle1" component="div">
-                Standard license
+              <Typography gutterBottom variant="subtitle1" component="div" fontSize={"30px"} fontWeight={700}>
+                {productList[pram.id].category}
               </Typography>
-              <Typography variant="body2" gutterBottom>
-                Full resolution 1920x1080 • JPEG
+              <Typography variant="body2" gutterBottom fontSize={"20px"} fontWeight={700} >
+                {productList[pram.id].title}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                ID: 1030114
+              <Typography variant="body2"  fontSize={"20px"} fontWeight={700}>
+              {productList[pram.id].price}
               </Typography>
             </Grid>
             <Grid item>
               <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                <BtnVariant/>
+                  <BtnVariant productList={productList[pram.id] } />
               </Typography>
             </Grid>
           </Grid>

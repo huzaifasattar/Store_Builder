@@ -5,24 +5,24 @@ const Products = createSlice({
   initialState: {
     data: [
       {
-        category: "cloths",
+        category: "Cloths",
         title: "Adidas Shirt",
         price: 75,
-        id: "product1",
+        id: 1,
         varients: [
           {
             type: "Shirt",
             option: [
               {
-                name: "smal",
+                name: "Small",
                 price: 30,
               },
               {
-                name: "medium",
+                name: "Medium",
                 price: 50,
               },
               {
-                name: "large",
+                name: "Large",
                 price: 80,
               },
             ],
@@ -30,20 +30,20 @@ const Products = createSlice({
         ],
       },
       {
-        category: "accessories",
+        category: "Accessories",
         title: "EARBUDS",
         price: 300,
-        id: "product2",
+        id: 2,
         varients: [
           {
             type: "Earburds",
             option: [
               {
-                name: "black",
+                name: "Black",
                 price: 100,
               },
               {
-                name: "white",
+                name: "White",
                 price: 150,
               },
             ],
@@ -51,10 +51,10 @@ const Products = createSlice({
         ],
       },
       {
-        category: "cloths",
+        category: "Cloths",
         title: "Adidas Hoodie",
         price: 500,
-        id: "product3",
+        id: 3,
         varients: [
           {
             type: "Hoodie",
@@ -64,11 +64,11 @@ const Products = createSlice({
                 price: 50,
               },
               {
-                name: "medium",
+                name: "Medium",
                 price: 100,
               },
               {
-                name: "large",
+                name: "Large",
                 price: 150,
               },
             ],
@@ -76,20 +76,20 @@ const Products = createSlice({
         ],
       },
       {
-        category: "accessories",
+        category: "Accessories",
         title: "Metal Strow Bottle",
         price: 105,
-        id: "product4",
+        id: 4,
         varients: [
           {
             type: "Bottle",
             option: [
               {
-                name: "hot",
+                name: "Hot",
                 price: 10,
               },
               {
-                name: "cold",
+                name: "Cold",
                 price: 30,
               },
             ],
@@ -97,21 +97,21 @@ const Products = createSlice({
         ],
       },
       {
-        category: "accessories",
-        title: "Sunglasses men",
+        category: "Accessories",
+        title: "Sunglasses Men",
 
         price: 3000,
-        id: "product5",
+        id: 5,
         varients: [
           {
-            type: "glasses",
+            type: "Glasses",
             option: [
               {
-                name: "mirror",
+                name: "Mirror",
                 price: 1000,
               },
               {
-                name: "plastic",
+                name: "Plastic",
                 price: 400,
               },
             ],
@@ -119,20 +119,20 @@ const Products = createSlice({
         ],
       },
       {
-        category: "accessories",
-        title: "Adidas Hat children",
+        category: "Accessories",
+        title: "Adidas Hat Children",
         price: 300,
-        id: "product6",
+        id: 6,
         varients: [
           {
-            type: "hat",
+            type: "Hat",
             option: [
               {
-                name: "male",
+                name: "Male",
                 price: 30,
               },
               {
-                name: "female",
+                name: "Female",
                 price: 50,
               },
             ],
@@ -140,24 +140,24 @@ const Products = createSlice({
         ],
       },
       {
-        category: "backPack",
-        title: "Adidas BackPack new",
+        category: "BackPack",
+        title: "Adidas BackPack New",
         price: 3000,
-        id: "product7",
+        id: 7,
         varients: [
           {
-            type: "Backpack",
+            type: "Men Bags",
             option: [
               {
-                name: "smal",
+                name: "Small",
                 price: 500,
               },
               {
-                name: "medium",
+                name: "Medium",
                 price: 800,
               },
               {
-                name: "large",
+                name: "Large",
                 price: 1000,
               },
             ],
@@ -165,24 +165,24 @@ const Products = createSlice({
         ],
       },
       {
-        category: "shoes",
+        category: "Shoes",
         title: "Running Shoes Old",
         price: 2000,
-        id: "product8",
+        id: 8,
         varients: [
           {
-            type: "Shoes",
+            type: "Male Shoes",
             option: [
               {
-                name: "5 number",
+                name: "5 Number",
                 price: 400,
               },
               {
-                name: "7 number",
+                name: "7 Number",
                 price: 600,
               },
               {
-                name: "9 number",
+                name: "9 Number",
                 price: 1000,
               },
             ],
@@ -190,24 +190,24 @@ const Products = createSlice({
         ],
       },
       {
-        category: "shoes",
-        title: "Running Shoes new",
+        category: "Shoes",
+        title: "Running Shoes New",
         price: 5000,
-        id: "product9",
+        id: 9,
         varients: [
           {
-            type: "Shoes",
+            type: "Female Shoes",
             option: [
               {
-                name: "5 number",
+                name: "5 Number",
                 price: 800,
               },
               {
-                name: "7 number",
+                name: "7 Number",
                 price: 1200,
               },
               {
-                name: "9 number",
+                name: "9 Number",
                 price: 1600,
               },
             ],
@@ -215,24 +215,24 @@ const Products = createSlice({
         ],
       },
       {
-        category: "shoes",
+        category: "Shoes",
         title: "Running Shoes Mid ",
         price: 200,
-        id: "product10",
+        id: 10,
         varients: [
           {
-            type: "Shoes",
+            type: "Shoes M/F",
             option: [
               {
-                name: "5 number",
+                name: "5 Number",
                 price: 500,
               },
               {
-                name: "7 number",
+                name: "7 Number",
                 price: 700,
               },
               {
-                name: "9 number",
+                name: "9 Number",
                 price: 900,
               },
             ],
@@ -240,24 +240,24 @@ const Products = createSlice({
         ],
       },
       {
-        category: "backPack",
+        category: "BackPack",
         title: "BackPack vision",
         price: 15000,
-        id: "product1",
+        id: 11,
         varients: [
           {
-            type: "Backpack",
+            type: "Children Bags",
             option: [
               {
-                name: "smal",
+                name: "Small",
                 price: 100,
               },
               {
-                name: "medium",
+                name: "Medium",
                 price: 120,
               },
               {
-                name: "large",
+                name: "Large",
                 price: 150,
               },
             ],
@@ -265,25 +265,25 @@ const Products = createSlice({
         ],
       },
       {
-        category: "backPack",
-        title: "BackPack cold",
+        category: "BackPack",
+        title: "BackPack Cold",
         price: 2000,
-        id: "product12",
+        id: 12,
 
         varients: [
           {
-            type: "Backpack",
+            type: "Female Bags",
             option: [
               {
-                name: "smal",
+                name: "Small",
                 price: 500,
               },
               {
-                name: "medium",
+                name: "Medium",
                 price: 800,
               },
               {
-                name: "large",
+                name: "Large",
                 price: 1000,
               },
             ],

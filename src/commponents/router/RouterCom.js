@@ -10,7 +10,7 @@ const RouterCom = () => {
           <Routes>
               <Route path='/' element={<><ResponsiveAppBar /><GridCard /></>} />
               
-              <Route path='/' element={<><ResponsiveAppBar/><ComplexGrid/></> } />
+              <Route path='/variant/:id' element={<><ResponsiveAppBar/><ComplexGrid/></> } />
       </Routes>
       
       </>

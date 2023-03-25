@@ -16,6 +16,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Logout from "@mui/icons-material/Logout";
 import Settings from "@mui/icons-material/Settings";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
+import { Link } from "react-router-dom";
 // import AddIcon from "@mui/icons-material/Add";
 
 function ResponsiveAppBar() {
@@ -37,7 +38,6 @@ function ResponsiveAppBar() {
             <Typography
               variant="h6"
               noWrap
-              component="a"
               href="#"
               sx={{
                 mr: 2,
@@ -48,6 +48,8 @@ function ResponsiveAppBar() {
                 color: "inherit",
                 textDecoration: "none",
               }}
+              component={Link}
+              to={"/"}
             >
               STORE_BUILDER
             </Typography>
@@ -70,9 +72,10 @@ function ResponsiveAppBar() {
                 fontWeight: 700,
                 // letterSpacing: ".1rem",
                 color: "inherit",
-                textDecoration: "none",
-              }}>
-              <LocalMallIcon style={{ color: "white" }} />
+              textDecoration: "none",
+            }}
+            startIcon={
+              <LocalMallIcon style={{ color: "white" }} />}>
               Cart
             </Button>
           </Box>

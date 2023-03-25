@@ -17,7 +17,7 @@ const GridCard = () => {
               (pro, i) =>
                 (productCategory === "All Category" ||
                   pro.category === productCategory) && (
-                  <ProductCard pro={pro} key={i} />
+                  <ProductCard pro={pro} key={i} i={ i} />
                 )
             )}
         </Grid>
