@@ -11,7 +11,7 @@ const GridCard = () => {
     <Container>
       <Grid container spacing={1}>
         <OptionCategory />
-        <Grid container item spacing={1}>
+        <Grid container item spacing={2}>
           {productDis &&
             productDis.map(
               (pro, i) =>

@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
                 textDecoration: "none",
               }}
               component={Link}
-              to={"/"}
+              to={"/home"}
             >
               STORE_BUILDER
             </Typography>
@@ -65,17 +65,18 @@ function ResponsiveAppBar() {
               <AddIcon style={{ color: "white" }} />
               Product
             </Button> */}
-            <Button sx={{
+            <Button
+              sx={{
                 mr: 2,
                 display: { xs: "flex", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 700,
                 // letterSpacing: ".1rem",
                 color: "inherit",
-              textDecoration: "none",
-            }}
-            startIcon={
-              <LocalMallIcon style={{ color: "white" }} />}>
+                textDecoration: "none",
+              }}
+              startIcon={<LocalMallIcon style={{ color: "white" }} />}
+            >
               Cart
             </Button>
           </Box>
@@ -161,7 +162,7 @@ function ResponsiveAppBar() {
                 </ListItemIcon>
                 Settings
               </MenuItem>
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={handleClose} component={Link} to={"/"}>
                 <ListItemIcon>
                   <Logout fontSize="small" />
                 </ListItemIcon>

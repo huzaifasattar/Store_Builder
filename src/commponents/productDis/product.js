@@ -9,14 +9,13 @@ import {
 } from "@mui/material";
 import image from "../image/store.jpeg";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ProductCard = ({ pro, i }) => {
   return (
     <Grid item xs={12} md={4} key={i}>
-      <Card sx={{ maxWidth: 345 }} style={{ marginTop: "10px",textDecoration:"none" }} component={Link}
-            to={`/variant/${i}`} >
+     <Card sx={{ maxWidth: 345 }} style={{ marginTop: "10px",textDecoration:"none",}} component={NavLink}
+            to={`/variant/${i}`}  >
         <CardMedia sx={{ height: 140 }} image={image} title="green iguana" />
         <CardContent>
           <Typography
