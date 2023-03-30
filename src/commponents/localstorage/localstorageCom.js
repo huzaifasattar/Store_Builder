@@ -1,16 +1,16 @@
-const setSignInUser = (arr) => {
-  localStorage.setItem("signInUser", JSON.stringify(arr));
+const setSignUpUser = (arr) => {
+  localStorage.setItem("SignUpUser", JSON.stringify(arr));
 };
-const setSignUpUser = (pre) => {
-  localStorage.setItem("signUpUser", JSON.stringify(pre));
-};
-
-const getSignInUser = () => {
-  return JSON.parse(localStorage.getItem("signInUser") || "[]");
+const setSignInUser = (obj) => {
+  localStorage.setItem("SignInUser", JSON.stringify(obj));
 };
 
 const getSignUpUser = () => {
-  return JSON.parse(localStorage.getItem("signUpUser") || "{}");
+  return JSON.parse(localStorage.getItem("SignUpUser") || "[]");
+};
+
+const getSignInUser = () => {
+  return JSON.parse(localStorage.getItem("SignInUser") || "{}");
 };
 
 export { setSignInUser, setSignUpUser, getSignInUser, getSignUpUser };

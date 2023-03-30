@@ -17,9 +17,19 @@ import Logout from "@mui/icons-material/Logout";
 import Settings from "@mui/icons-material/Settings";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import { Link } from "react-router-dom";
-// import AddIcon from "@mui/icons-material/Add";
+import AddIcon from "@mui/icons-material/Add";
+
+import { useNavigate } from "react-router-dom";
+import { setSignInUser,getSignInUser } from "../localstorage/localstorageCom";
 
 function ResponsiveAppBar() {
+  const navigate = useNavigate()
+  const user = getSignInUser()
+
+  const handleLogOut = () => {
+    setSignInUser({})
+    navigate('/')
+  }
   const [anchorEl, setAnchorEl] = React.useState("");
   const open = Boolean(anchorEl);
 
@@ -53,7 +63,7 @@ function ResponsiveAppBar() {
             >
               STORE_BUILDER
             </Typography>
-            {/* <Button sx={{
+            {user.admin === true &&<Button sx={{
                 mr: 2,
                 display: { xs: "flex", md: "flex" },
                 fontFamily: "monospace",
@@ -64,8 +74,8 @@ function ResponsiveAppBar() {
               }}>
               <AddIcon style={{ color: "white" }} />
               Product
-            </Button> */}
-            <Button
+            </Button>}
+            {user.admin ===false &&<Button
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "flex" },
@@ -78,7 +88,7 @@ function ResponsiveAppBar() {
               startIcon={<LocalMallIcon style={{ color: "white" }} />}
             >
               Cart
-            </Button>
+            </Button>}
           </Box>
           <Box>
             <IconButton
@@ -153,7 +163,7 @@ function ResponsiveAppBar() {
                 <ListItemIcon>
                   <Avatar fontSize="small" />
                 </ListItemIcon>
-                Profile
+                {`${user.firstName} ${user.lastName}`}
               </MenuItem>
 
               <MenuItem onClick={handleClose}>
@@ -162,11 +172,13 @@ function ResponsiveAppBar() {
                 </ListItemIcon>
                 Settings
               </MenuItem>
-              <MenuItem onClick={handleClose} component={Link} to={"/"}>
+              <MenuItem onClick={handleClose} >
+                <Typography onClick={()=>{handleLogOut()}}>
                 <ListItemIcon>
-                  <Logout fontSize="small" />
+                  <Logout fontSize="small"  />
                 </ListItemIcon>
-                Logout
+                  Logout
+                  </Typography>
               </MenuItem>
             </Menu>
           </Box>
