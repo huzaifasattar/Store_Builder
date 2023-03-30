@@ -6,6 +6,8 @@ import {
   CssBaseline,
   TextField,
   Grid,
+  IconButton,
+  InputAdornment,
   Box,
   Typography,
   Container,
@@ -15,16 +17,16 @@ import {
 import { NavLink } from "react-router-dom";
 import { setSignUpUser, getSignUpUser } from "../localstorage/localstorageCom";
 
+import { VisibilityOff, Visibility } from "@mui/icons-material";
+
 export default function SignUp() {
+  const signUp = getSignUpUser();
 
-    const signUp = getSignUpUser();
-    
-    const [userArr, setUserArr] = React.useState(signUp)
+  const [userArr, setUserArr] = React.useState(signUp);
 
-    React.useEffect(() => {
-        setSignUpUser(userArr)
-    }, [userArr])
-    
+  React.useEffect(() => {
+    setSignUpUser(userArr);
+  }, [userArr]);
 
   const [admin, setAdmin] = React.useState(false);
 
@@ -64,13 +66,13 @@ export default function SignUp() {
       registerUser.password &&
       registerUser.password === registerUser.reTypePassword
     ) {
-        setUserArr((item) => [...item, registerUser]);
-      
+      setUserArr((item) => [...item, registerUser]);
+
       setFlag(true);
-    //   console.log("sucess");
+      //   console.log("sucess");
     } else {
       setFlag2(true);
-    //   console.log("please fill");
+      //   console.log("please fill");
     }
   };
   const handleAdmin = () => {
@@ -80,17 +82,20 @@ export default function SignUp() {
       setAdmin(false);
     }
   };
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
   return (
     <>
       {flag ? (
-        <Alert severity="success">
-          Account successfuly created!
-        </Alert>
+        <Alert severity="success">Account successfuly created!</Alert>
       ) : (
         ""
       )}
       {flag2 ? (
-        <Alert severity="error">Please Fill the All Field <strong>OR</strong> Password did Not Match!</Alert>
+        <Alert severity="error">
+          Please Fill the All Field <strong>OR</strong> Password did Not Match!
+        </Alert>
       ) : (
         ""
       )}
@@ -158,11 +163,24 @@ export default function SignUp() {
                   fullWidth
                   name="password"
                   label="Password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="new-password"
                   onChange={(e) => {
                     handleOnchange(e);
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
                   }}
                 />
               </Grid>
@@ -172,7 +190,7 @@ export default function SignUp() {
                   fullWidth
                   name="reTypePassword"
                   label="Confirm Password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="confirm password"
                   autoComplete="new-password"
                   onChange={(e) => {
