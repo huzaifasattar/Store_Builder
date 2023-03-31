@@ -81,7 +81,6 @@ function ResponsiveAppBar() {
                 display: { xs: "flex", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 700,
-                // letterSpacing: ".1rem",
                 color: "inherit",
                 textDecoration: "none",
               }}

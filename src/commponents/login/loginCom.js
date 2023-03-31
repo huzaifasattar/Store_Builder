@@ -131,8 +131,7 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              // component={Link}
-              // to={"/home"}
+              
               onClick={() => {
                 handleClick();
               }}
