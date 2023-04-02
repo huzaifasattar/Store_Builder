@@ -1,19 +1,14 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import image from "../image/store.jpeg";
-import {
-  Container,
-  ButtonBase,
-  Paper,
-  Grid,
-  Button,
-  Box,
-} from "@mui/material";
+import { Container, ButtonBase, Paper, Grid, Button, Box } from "@mui/material";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import BtnVariant from "./btnVariant";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import { nanoid } from "@reduxjs/toolkit";
+import { getSignInUser } from "../localstorage/localstorageCom";
+import { subQuantity, addQuantity, addCart } from "../redux/state2";
 const Img = styled("img")({
   display: "block",
   maxWidth: "100%",
@@ -23,6 +18,60 @@ const Img = styled("img")({
 export default function ComplexGrid() {
   const pram = useParams();
   const productList = useSelector((state) => state.Products.data);
+  const CartCount = useSelector((state) => state.cartState.data);
+  const dispatch = useDispatch();
+  const user = getSignInUser();
+  const [totalPrice, setTotalPrice] = React.useState(
+    productList[pram.id].price
+  );
+  const [variantPrices, setVariantPrices] = React.useState({});
+
+  const [variantName, setVariantName] = React.useState([]);
+
+  React.useEffect(() => {
+    let obj = {};
+    // productList[+pram.id].varients.forEach((variant) => {
+    //   obj[variant.type] = 0;
+    // });
+    setVariantPrices((pre) => {
+      return { ...obj };
+    });
+    console.log(variantPrices);
+  }, []);
+
+  const changePrice = (obj) => {
+    variantPrices[obj.type] = obj.price;
+
+    let total = productList[pram.id].price;
+
+    for (let key in variantPrices) {
+      total += variantPrices[key];
+    }
+    setTotalPrice(total);
+  };
+  const addToCart = () => {
+    return {
+      name: productList[+pram.id].name,
+      price: totalPrice,
+      id: nanoid(),
+      productId: productList[+pram.id].id,
+      variantName,
+      quantity: 1,
+    };
+  };
+
+  const indexOfCartProduct = CartCount.findIndex((item) => {
+    if (item.productId === productList[+pram.id].id) {
+      let isSame = false;
+
+      isSame = !item.variantName.some(
+        (variant, idx) => variant !== variantName[idx]
+      );
+
+      return isSame;
+    }
+    return false;
+  });
 
   return (
     <Container>
@@ -56,39 +105,76 @@ export default function ComplexGrid() {
               style={{ textAlign: "center" }}
             >
               <Grid item xs>
-                <Box
-                       
-                  variant="subtitle1"
-                  
-                  fontSize={"30px"}
-                  fontWeight={700}
-                >
+                <Box variant="subtitle1" fontSize={"30px"} fontWeight={700}>
                   {productList[pram.id].category}
+                </Box>
+                <Box variant="body2" fontSize={"20px"} fontWeight={700}>
+                  {productList[pram.id].title}
                 </Box>
                 <Box
                   variant="body2"
-                       
                   fontSize={"20px"}
                   fontWeight={700}
-                 
+                  mt="25px"
                 >
-                  {productList[pram.id].title}
-                </Box>
-                <Box variant="body2" fontSize={"20px"} fontWeight={700} mt="25px">
-                  {productList[pram.id].price}
+                  {totalPrice}
                 </Box>
               </Grid>
               <Grid item>
-                <Box sx={{ cursor: "pointer" }} variant="body2" >
-                  <BtnVariant productList={productList[pram.id]} />
+                <Box sx={{ cursor: "pointer" }} variant="body2">
+                  <BtnVariant
+                    productList={productList[pram.id]}
+                    changePrice={changePrice}
+                    variantName={(value, index) => {
+                      setVariantName((prev) => {
+                        const clone = [...prev];
+                        clone[index] = value;
+                        return clone;
+                      });
+                    }}
+                  />
                 </Box>
               </Grid>
             </Grid>
-            <Grid item>
-              <Button variant="subtitle1" component="span">
-                ADD <LocalMallIcon style={{ color: "#1976d2" }} />
-              </Button>
-            </Grid>
+
+            {user.admin ? (
+              <></>
+            ) : indexOfCartProduct >= 0 ? (
+              <Grid item>
+                <Button
+                  variant="subtitle1"
+                  component="span"
+                  onClick={() =>
+                    dispatch(subQuantity({ index: indexOfCartProduct }))
+                  }
+                >
+                  -
+                </Button>
+                <Button variant="info" component="span">
+                  {CartCount[indexOfCartProduct].quantity}
+                </Button>
+                <Button
+                  variant="subtitle1"
+                  component="span"
+                  onClick={() =>
+                    dispatch(addQuantity({ index: indexOfCartProduct }))
+                  }
+                >
+                  +
+                </Button>
+              </Grid>
+            ) : (
+              <Grid item>
+                <Button
+                  variant="subtitle1"
+                  component="span"
+                  disabled={!variantName.length}
+                  onClick={() => dispatch(addCart(addToCart()))}
+                >
+                  ADD <LocalMallIcon style={{ color: "#1976d2" }} />
+                </Button>
+              </Grid>
+            )}
           </Grid>
         </Grid>
       </Paper>
