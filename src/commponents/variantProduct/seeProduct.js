@@ -6,9 +6,10 @@ import LocalMallIcon from "@mui/icons-material/LocalMall";
 import BtnVariant from "./btnVariant";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { nanoid } from "@reduxjs/toolkit";
 import { getSignInUser } from "../localstorage/localstorageCom";
-import { subQuantity, addQuantity, addCart } from "../redux/state2";
+import { subQuantity,addQuantity,addCart } from "../redux/state2";
+import { nanoid } from "@reduxjs/toolkit";
+
 const Img = styled("img")({
   display: "block",
   maxWidth: "100%",
@@ -16,9 +17,10 @@ const Img = styled("img")({
 });
 
 export default function ComplexGrid() {
+  
   const pram = useParams();
   const productList = useSelector((state) => state.Products.data);
-  const CartCount = useSelector((state) => state.cartState.data);
+  const CartCount = useSelector((state) => state.CartState.data);
   const dispatch = useDispatch();
   const user = getSignInUser();
   const [totalPrice, setTotalPrice] = React.useState(
@@ -36,7 +38,6 @@ export default function ComplexGrid() {
     setVariantPrices((pre) => {
       return { ...obj };
     });
-    console.log(variantPrices);
   }, []);
 
   const changePrice = (obj) => {
@@ -167,7 +168,7 @@ export default function ComplexGrid() {
               <Grid item>
                 <Button
                   variant="subtitle1"
-                  component="span"
+                  // component="span"
                   disabled={!variantName.length}
                   onClick={() => dispatch(addCart(addToCart()))}
                 >

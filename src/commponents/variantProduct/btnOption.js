@@ -21,10 +21,9 @@ const BtnOption = ({ option, type, changePrice, variantName, index }) => {
         <ToggleButton
           key={idx}
           id={`radio-${type}-${idx}`}
-          type="radio"
-          variant={"inherit"}
-          color="primary"
-
+          // type="radio"
+          
+          sx={{ border: 'solid #1976d2 1px', color: '#1976d2', fontWeight:'700'}}
           name={type}
           value={radio.idx}
           checked={radioValue === idx}
