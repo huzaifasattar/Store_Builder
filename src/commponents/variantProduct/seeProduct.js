@@ -52,13 +52,14 @@ export default function ComplexGrid() {
   };
   const addToCart = () => {
     return {
-      name: productList[+pram.id].name,
+      name: productList[pram.id].title,
       price: totalPrice,
       id: nanoid(),
       productId: productList[+pram.id].id,
       variantName,
       quantity: 1,
     };
+    console.log(addCart)
   };
 
   const indexOfCartProduct = CartCount.findIndex((item) => {

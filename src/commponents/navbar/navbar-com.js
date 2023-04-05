@@ -16,7 +16,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Logout from "@mui/icons-material/Logout";
 import Settings from "@mui/icons-material/Settings";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 
 import { useNavigate } from "react-router-dom";
@@ -84,6 +84,8 @@ function ResponsiveAppBar() {
                 color: "inherit",
                 textDecoration: "none",
               }}
+              component={NavLink}
+              to='/cart'
               startIcon={<LocalMallIcon style={{ color: "white" }} />}
             >
               Cart
