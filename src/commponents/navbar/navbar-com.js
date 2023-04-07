@@ -20,16 +20,16 @@ import { Link, NavLink } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 
 import { useNavigate } from "react-router-dom";
-import { setSignInUser,getSignInUser } from "../localstorage/localstorageCom";
+import { setSignInUser, getSignInUser } from "../localstorage/localstorageCom";
 
 function ResponsiveAppBar() {
-  const navigate = useNavigate()
-  const user = getSignInUser()
+  const navigate = useNavigate();
+  const user = getSignInUser();
 
   const handleLogOut = () => {
-    setSignInUser({})
-    navigate('/')
-  }
+    setSignInUser({});
+    navigate("/");
+  };
   const [anchorEl, setAnchorEl] = React.useState("");
   const open = Boolean(anchorEl);
 
@@ -63,33 +63,41 @@ function ResponsiveAppBar() {
             >
               STORE_BUILDER
             </Typography>
-            {user.admin === true &&<Button sx={{
-                mr: 2,
-                display: { xs: "flex", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                // letterSpacing: ".1rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}>
-              <AddIcon style={{ color: "white" }} />
-              Product
-            </Button>}
-            {user.admin ===false &&<Button
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                color: "inherit",
-                textDecoration: "none",
-              }}
-              component={NavLink}
-              to='/cart'
-              startIcon={<LocalMallIcon style={{ color: "white" }} />}
-            >
-              Cart
-            </Button>}
+            {user.admin === true && (
+              <Button
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  // letterSpacing: ".1rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+                component={NavLink}
+                to="/product"
+              >
+                <AddIcon style={{ color: "white" }} />
+                Product
+              </Button>
+            )}
+            {user.admin === false && (
+              <Button
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+                component={NavLink}
+                to="/cart"
+                startIcon={<LocalMallIcon style={{ color: "white" }} />}
+              >
+                Cart
+              </Button>
+            )}
           </Box>
           <Box>
             <IconButton
@@ -173,13 +181,17 @@ function ResponsiveAppBar() {
                 </ListItemIcon>
                 Settings
               </MenuItem>
-              <MenuItem onClick={handleClose} >
-                <Typography onClick={()=>{handleLogOut()}}>
-                <ListItemIcon>
-                  <Logout fontSize="small"  />
-                </ListItemIcon>
+              <MenuItem onClick={handleClose}>
+                <Typography
+                  onClick={() => {
+                    handleLogOut();
+                  }}
+                >
+                  <ListItemIcon>
+                    <Logout fontSize="small" />
+                  </ListItemIcon>
                   Logout
-                  </Typography>
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>
