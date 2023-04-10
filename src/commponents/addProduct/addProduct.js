@@ -9,13 +9,19 @@ import {
 } from "@mui/material";
 import DownloadDoneIcon from "@mui/icons-material/DownloadDone";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
+import VarientOt from "./varient";
+import { useDispatch } from "react-redux";
+import { productAdd } from "../redux/state";
 const AddProduct = () => {
   // const [selecteditemCategory, setSelecteditemCategory] =useState(['Smart Watch', 'Cosmetics', 'Mobile Accessories', 'Others']);
   // const show = (e) => {
   //     setSelecteditemCategory(e.target.value);
   // };
+    
+   const dispatch = useDispatch();
   const [productValue, setProductValue] = useState({
     category: "Cloths",
     name: "",
@@ -23,6 +29,7 @@ const AddProduct = () => {
     id: nanoid(),
     varients: [],
   });
+    
 
   console.log(productValue);
   const handleChange = (e) => {
@@ -37,6 +44,23 @@ const AddProduct = () => {
       return clone;
     });
   };
+  const deleteVarient = (index) => {
+    setProductValue((pre) => {
+      const clone = { ...pre };
+      const newArr = [...pre.varients];
+      newArr.splice(index, 1);
+      clone.varients = newArr;
+      return clone;
+    });
+  };
+  const addButton = () => {
+    dispatch(productAdd(productValue));
+    setProductValue((pre) => ({
+        ...pre,
+        varients: []
+    }))
+
+}
   const categoryArr = ["Cloths", "Shoes", "BackPack", "Accessories"];
 
   return (
@@ -145,6 +169,22 @@ const AddProduct = () => {
                 />
               </Grid>
             </Grid>
+            {productValue.varients.map((varient, index) => (
+              <VarientOt
+                key={index}
+                index={index}
+                varient={varient}
+                inputVal={varient.type}
+                deleteVarient={deleteVarient}
+                onChange={(value) => {
+                  setProductValue((val) => {
+                    const clone = { ...val };
+                    clone.varients[index] = value;
+                    return clone;
+                  });
+                }}
+              />
+            ))}
             <Grid container>
               <Grid item xs={12} sm={2} md={2}>
                 <Typography
@@ -158,8 +198,22 @@ const AddProduct = () => {
                   Varients
                 </Typography>
               </Grid>
+
               <Grid item xs={12} sm={6} md={6}>
-                <Button variant="contained" style={{ marginTop: "15px" }}>
+                <Button
+                  variant="contained"
+                  style={{ marginTop: "15px" }}
+                  startIcon={<AddIcon />}
+                  onClick={() =>
+                    setProductValue((prev) => ({
+                      ...prev,
+                      varients: [
+                        ...prev.varients,
+                        { type: "", options: [], id: nanoid() },
+                      ],
+                    }))
+                  }
+                >
                   Add Varients
                 </Button>
               </Grid>
@@ -172,6 +226,12 @@ const AddProduct = () => {
                   variant="contained"
                   style={{ marginTop: "15px" }}
                   startIcon={<RestartAltIcon />}
+                  onClick={() =>
+                    setProductValue((pre) => ({
+                      ...pre,
+                      varients: [],
+                    }))
+                  }
                 >
                   Reset
                 </Button>
@@ -181,6 +241,14 @@ const AddProduct = () => {
                   variant="contained"
                   style={{ marginTop: "15px" }}
                   startIcon={<DownloadDoneIcon />}
+                  onClick={() => addButton()}
+                  disabled={
+                    !(
+                      productValue.category &&
+                      productValue.name &&
+                      productValue.price
+                    )
+                  }
                 >
                   Done
                 </Button>
