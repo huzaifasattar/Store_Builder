@@ -16,10 +16,7 @@ import VarientOt from "./varient";
 import { useDispatch } from "react-redux";
 import { productAdd } from "../redux/state";
 const AddProduct = () => {
-  // const [selecteditemCategory, setSelecteditemCategory] =useState(['Smart Watch', 'Cosmetics', 'Mobile Accessories', 'Others']);
-  // const show = (e) => {
-  //     setSelecteditemCategory(e.target.value);
-  // };
+  
     
    const dispatch = useDispatch();
   const [productValue, setProductValue] = useState({
